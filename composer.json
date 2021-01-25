@@ -8,5 +8,12 @@
             "email": "daniel.aparecido4683@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "./app",
+            "App\\Helpers\\": "./app/Helpers",
+            "App\\Crud\\": "./app/Crud"
+        }
+    }
 }
