@@ -1,0 +1,12 @@
+{
+    "name": "oaparecido/cli-crud",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Aparecido",
+            "email": "daniel.aparecido4683@gmail.com"
+        }
+    ],
+    "require": {}
+}
