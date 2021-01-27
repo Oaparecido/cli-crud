@@ -33,7 +33,7 @@ if (!isset($argv[1])) {
 switch ($argv[1]) {
     case '--create':
     case '-C':
-        (new Create($argv));
+        (new Create($argv))->store();
         break;
     case '--read':
     case '-R':
