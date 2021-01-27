@@ -12,17 +12,18 @@ use App\Helpers\ListCommandsHelper;
 
 
 $pdo = (new Connection())->connect();
-if ($pdo != null) {
-    for ($i = 0; $i < 5; $i++) {
-        sleep(1.5);
-        echo ". ";
-    }
-    echo PHP_EOL;
-    echo "✅ \e[92mConnected to the SQLite database successfully!\e[0m" . PHP_EOL . PHP_EOL;
-} else {
-
-    echo "🚨 \e[91mWhoops, could not connect to the SQLite database!\e[0m" . PHP_EOL . PHP_EOL;
-}
+//if ($pdo != null) {
+//    for ($i = 0; $i < 5; $i++) {
+//        sleep(1.5);
+//        echo ". ";
+//    }
+//    echo PHP_EOL;
+//    echo "✅ \e[92mConnected to the SQLite database successfully!\e[0m" . PHP_EOL . PHP_EOL;
+//    sleep(2);
+//} else {
+//
+//    echo "🚨 \e[91mWhoops, could not connect to the SQLite database!\e[0m" . PHP_EOL . PHP_EOL;
+//}
 
 if (!isset($argv[1])) {
     echo "🚨 \e[91mIt's need passed a option\e[0m" . PHP_EOL;
