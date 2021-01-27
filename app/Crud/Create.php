@@ -21,6 +21,7 @@ class Create
      */
     public function store()
     {
-        DBHelper::create($this->args['table_name'], $this->args['assignment']);
+        if (DBHelper::create($this->args['table_name'], $this->args['assignment']))
+            echo ResponseHelper::success($create = true);
     }
 }
