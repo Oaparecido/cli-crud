@@ -32,8 +32,8 @@ class DBHelper
         self::up();
 
         $sql = "CREATE TABLE IF NOT EXISTS $table (
-                id integer primary key autoincrement,
-                assignment char(100) not null 
+                id integer primary key auto_increment,
+                assignment varchar(100) not null 
                  )";
 
         try {
