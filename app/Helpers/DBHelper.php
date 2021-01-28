@@ -23,6 +23,7 @@ class DBHelper
     }
 
     /**
+     * @param string $table
      * @param string $assignment
      * @return bool
      * @throws Exception
@@ -42,8 +43,16 @@ class DBHelper
             throw new Exception($exception->getMessage(), $exception->getCode());
         }
 
-        $sql = "INSERT INTO $table (assignment) VALUES (:assignment)";
+        $sql = "INSERT INTO $table (1, :assignment)";
         return (self::$pdo->prepare($sql)->execute([$assignment])) ? true : false;
+    }
+
+    public static function delete(string $table, int $id)
+    {
+        self::up();
+
+        $sql = "DROP";
+
     }
 
 }
