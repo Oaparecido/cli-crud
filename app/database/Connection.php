@@ -14,9 +14,12 @@ class Connection
      * @return PDO
      * @throws Exception
      */
-    public function connect() {
+    public function connect(): PDO
+    {
+//        echo "mysql:host=" . Config::MYSQL_HOST . ";port=" . Config::MYSQL_PORT . ";dbname=" . Config::MYSQL_DATABASE;
+//        die();
         try {
-            $pdo = new PDO("sqlite:" . Config::PATH_SQLITE);
+            $pdo = new PDO("mysql:host=" . Config::MYSQL_HOST . ";dbname=" . Config::MYSQL_DATABASE . ";port=" . Config::MYSQL_PORT, Config::MYSQL_USER, Config::MYSQL_PASSWORD);
         } catch(Exception $exception) {
             throw new Exception($exception->getMessage(), $exception->getCode());
         }
