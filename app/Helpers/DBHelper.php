@@ -4,7 +4,6 @@ namespace App\Helpers;
 
 use App\database\Connection;
 use Exception;
-use PDO;
 
 class DBHelper
 {
@@ -43,8 +42,12 @@ class DBHelper
             throw new Exception($exception->getMessage(), $exception->getCode());
         }
 
-        $sql = "INSERT INTO $table (1, :assignment)";
-        return (self::$pdo->prepare($sql)->execute([$assignment])) ? true : false;
+        $sql = "INSERT INTO $table (assignment) VALUES (:assignment)";
+        $stmt =  self::$pdo->prepare($sql);
+        $stmt->bindParam(':assignment', $assignment);
+        $stmt->execute();
+        return true;
+//        return self::$pdo->prepare($sql)->bindParam(':assignment', $assignment)->execute();
     }
 
     public static function delete(string $table, int $id)
