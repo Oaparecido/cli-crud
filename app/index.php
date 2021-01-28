@@ -7,11 +7,10 @@ use App\Crud\Create;
 use App\Crud\Delete;
 use App\Crud\Read;
 use App\Crud\Update;
-use App\database\Connection;
 use App\Helpers\ListCommandsHelper;
 
 
-$pdo = (new Connection())->connect();
+//$pdo = (new Connection())->connect();
 //if ($pdo != null) {
 //    for ($i = 0; $i < 5; $i++) {
 //        sleep(1.5);
@@ -24,6 +23,7 @@ $pdo = (new Connection())->connect();
 //
 //    echo "🚨 \e[91mWhoops, could not connect to the SQLite database!\e[0m" . PHP_EOL . PHP_EOL;
 //}
+//die();
 
 if (!isset($argv[1])) {
     echo "🚨 \e[91mIt's need passed a option\e[0m" . PHP_EOL;
@@ -33,7 +33,7 @@ if (!isset($argv[1])) {
 switch ($argv[1]) {
     case '--create':
     case '-C':
-        (new Create($argv))->store();
+        (new Create($argv))->handle();
         break;
     case '--read':
     case '-R':
@@ -45,7 +45,7 @@ switch ($argv[1]) {
         break;
     case '--delete':
     case '-D':
-        (new Delete($argv));
+        (new Delete($argv))->handle();
         break;
     case '--list' :
     case '-L':
