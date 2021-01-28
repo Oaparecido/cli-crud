@@ -45,17 +45,26 @@ class DBHelper
         $sql = "INSERT INTO $table (assignment) VALUES (:assignment)";
         $stmt =  self::$pdo->prepare($sql);
         $stmt->bindParam(':assignment', $assignment);
-        $stmt->execute();
-        return true;
-//        return self::$pdo->prepare($sql)->bindParam(':assignment', $assignment)->execute();
+        return $stmt->execute();
     }
 
-    public static function delete(string $table, int $id)
+    /**
+     * @param string $table
+     * @param $id
+     * @return mixed
+     * @throws Exception
+     */
+    public static function delete(string $table, $id): bool
     {
         self::up();
+        /**
+         * TODO: Add logic to delete multiples $id
+         * guru99.com/delete-and-update.html
+         */
 
-        $sql = "DROP";
-
+        $sql = "DELETE FROM $table WHERE id = $id";
+        $stmt = self::$pdo->prepare($sql);
+        return $stmt->execute();
     }
 
 }
