@@ -30,7 +30,8 @@ class Create
      */
     public function handle()
     {
+        //TODO: Add validations in args, to clean names
         if (DBHelper::create($this->args['table_name'], $this->args['assignment']))
-            echo ResponseHelper::success($create = true);
+            echo ResponseHelper::success(create: true);
     }
 }
