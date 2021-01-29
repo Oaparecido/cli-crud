@@ -67,4 +67,18 @@ class DBHelper
         return $stmt->execute();
     }
 
+    /**
+     * @param string $table
+     * @return array
+     * @throws Exception
+     */
+    public static function read(string $table): array
+    {
+        self::up();
+
+        $sql = "SELECT * FROM $table";
+        $stmt = self::$pdo->query($sql);
+        return $stmt->fetchAll();
+    }
+
 }
