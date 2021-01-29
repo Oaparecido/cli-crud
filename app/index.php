@@ -37,11 +37,11 @@ switch ($argv[1]) {
         break;
     case '--read':
     case '-R':
-        (new Update($argv));
+        (new Read($argv))->handle();
         break;
     case '--update':
     case '-U':
-        (new Read($argv));
+        (new Update($argv));
         break;
     case '--delete':
     case '-D':
