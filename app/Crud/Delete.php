@@ -5,6 +5,7 @@ namespace App\Crud;
 use App\Helpers\DBHelper;
 use App\Helpers\ResponseHelper;
 use Exception;
+use function Couchbase\defaultDecoder;
 
 class Delete
 {
