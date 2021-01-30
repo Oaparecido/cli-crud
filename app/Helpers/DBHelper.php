@@ -43,18 +43,18 @@ class DBHelper
         }
 
         $sql = "INSERT INTO $table (assignment) VALUES (:assignment)";
-        $stmt =  self::$pdo->prepare($sql);
+        $stmt = self::$pdo->prepare($sql);
         $stmt->bindParam(':assignment', $assignment);
         return $stmt->execute();
     }
 
     /**
      * @param string $table
-     * @param $id
+     * @param $ids
      * @return mixed
      * @throws Exception
      */
-    public static function delete(string $table, $id): bool
+    public static function delete(string $table, array $ids): bool
     {
         self::up();
         /**
@@ -62,9 +62,17 @@ class DBHelper
          * guru99.com/delete-and-update.html
          */
 
-        $sql = "DELETE FROM $table WHERE id = $id";
-        $stmt = self::$pdo->prepare($sql);
-        return $stmt->execute();
+        foreach ($ids as $id) {
+            $sql = "DELETE FROM $table WHERE id = $id";
+            $stmt = self::$pdo->prepare($sql);
+            try {
+                $stmt->execute();
+            } catch (Exception $exception) {
+                throw new Exception($exception->getMessage(), $exception->getCode());
+            }
+        }
+
+        return true;
     }
 
     /**
