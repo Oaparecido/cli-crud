@@ -89,4 +89,22 @@ class DBHelper
         return $stmt->fetchAll();
     }
 
+    public static function testConnection()
+    {
+        self::up();
+
+        if (self::$pdo != null) {
+            for ($i = 0; $i < 5; $i++) {
+                sleep(1.5);
+                echo ". ";
+            }
+            echo PHP_EOL;
+            echo "✅ \e[92mConnected to the SQLite database successfully!\e[0m" . PHP_EOL . PHP_EOL;
+            sleep(2);
+        } else {
+
+            echo "🚨 \e[91mWhoops, could not connect to the SQLite database!\e[0m" . PHP_EOL . PHP_EOL;
+        }
+    }
+
 }
