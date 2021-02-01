@@ -19,11 +19,11 @@ if (!isset($argv[1])) {
     return;
 }
 
+if (!ValidatorsHelper::verifyArgs($argv)) return;
+
 switch ($argv[1]) {
     case '--create':
     case '-C':
-        if (!ValidatorsHelper::verifyArgs($argv))
-            break;
         (new Create($argv))->handle();
         break;
     case '--read':
