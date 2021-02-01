@@ -35,4 +35,18 @@ class ValidatorsHelper
 
         return true;
     }
+
+    /**
+     * @param $argv
+     * @return false
+     */
+    public static function verifyArgs($argv): bool
+    {
+        if (count($argv) < 4) {
+            echo ResponseHelper::failed("see if you are passing the parameters correctly");
+            return false;
+        }
+
+        return true;
+    }
 }
