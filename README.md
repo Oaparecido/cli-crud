@@ -18,7 +18,7 @@ With that installed just run the following command.
 
 ### 🔥 Usage 🔥
 
-📌 **[--create|-C]:** Creates an element in the database
-    Usage:
-    - First param: Name from database;
-    - Second param: What wil be saved.
+📌 **[--create|-C]:** Creates an element in the database</br>
+Usage:</br>
+* First param: Name from database;
+* Second param: What wil be saved.
