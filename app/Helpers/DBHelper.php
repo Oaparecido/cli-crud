@@ -58,7 +58,7 @@ class DBHelper
     {
         self::up();
         if (!ValidatorsHelper::verifyId($table, $ids))
-            return false;
+            return ResponseHelper::failed("id is correct");
 
         foreach ($ids as $id) {
             $sql = "DELETE FROM $table WHERE id = $id";

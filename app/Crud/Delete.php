@@ -32,8 +32,8 @@ class Delete
     public function handle()
     {
         if (DBHelper::delete($this->args['table_name'], $this->args['id']))
-            echo ResponseHelper::success(delete: true);
+            echo ResponseHelper::success('deleted');
         else
-            echo ResponseHelper::failed(delete: true);
+            echo ResponseHelper::failed();
     }
 }
