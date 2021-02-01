@@ -57,19 +57,14 @@ class DBHelper
     public static function delete(string $table, array $ids): bool
     {
         self::up();
-        /**
-         * TODO: Add logic to delete multiples $id
-         * guru99.com/delete-and-update.html
-         */
+        if (!ValidatorsHelper::verifyId($table, $ids))
+            return false;
 
         foreach ($ids as $id) {
             $sql = "DELETE FROM $table WHERE id = $id";
             $stmt = self::$pdo->prepare($sql);
-            try {
-                $stmt->execute();
-            } catch (Exception $exception) {
-                throw new Exception($exception->getMessage(), $exception->getCode());
-            }
+            if (!$stmt->execute())
+                return false;
         }
 
         return true;

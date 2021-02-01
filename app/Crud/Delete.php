@@ -37,5 +37,7 @@ class Delete
     {
         if (DBHelper::delete($this->args['table_name'], $this->args['id']))
             echo ResponseHelper::success(delete: true);
+        else
+            echo ResponseHelper::failed(delete: true);
     }
 }
