@@ -28,7 +28,7 @@ With that installed just run the following command.
 * First param: Name from a table into database;
 * Second param: id from an element in the table
 
-📌 **[--update|-U]:**update an element in the table</br>
+📌 **[--update|-U]:** Update an element in the table</br>
 **Usage:**
 * First param: Name from a table into database;
 * Second param: id from an element in the table;.
