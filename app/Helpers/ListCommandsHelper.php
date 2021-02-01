@@ -7,7 +7,7 @@ class ListCommandsHelper
     private function listCreate() {
         echo " \e[93m📌 [--create|-C]\e[0m: creates an element in the database" . PHP_EOL;
         echo "     Usage:" . PHP_EOL;
-        echo "     - First param: Name from database;" . PHP_EOL;
+        echo "     - First param: Name from a table into database;;" . PHP_EOL;
         echo "     - Second param: What wil be saved." . PHP_EOL;
         echo PHP_EOL;
     }
@@ -15,16 +15,16 @@ class ListCommandsHelper
     private function listUpdate() {
         echo " \e[93m📌 [--update|-U]\e[0m: update an element in the database" . PHP_EOL;
         echo "     Usage:" . PHP_EOL;
-        echo "     - First param: Name from database;" . PHP_EOL;
-        echo "     - second param: id from element in the table;" . PHP_EOL;
-        echo "     - Second param: What wil be saved." . PHP_EOL;
+        echo "     - First param: Name from a table into database;;" . PHP_EOL;
+        echo "     - Second param: id from element in the table;" . PHP_EOL;
+        echo "     - Third param: What wil be saved." . PHP_EOL;
         echo PHP_EOL;
     }
 
     private function listDelete() {
         echo " \e[93m📌 [--delete|-D]\e[0m: delete an element in the database" . PHP_EOL;
         echo "     Usage:" . PHP_EOL;
-        echo "     - First param: Name from database;" . PHP_EOL;
+        echo "     - First param: Name from a table into database;;" . PHP_EOL;
         echo "     - Second param: id from element in the table" . PHP_EOL;
         echo PHP_EOL;
     }
