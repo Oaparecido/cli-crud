@@ -31,6 +31,6 @@ class Create
     public function handle()
     {
         if (DBHelper::create($this->args['table_name'], $this->args['assignment']))
-            echo ResponseHelper::success(create: true);
+            echo ResponseHelper::success('create');
     }
 }
