@@ -15,3 +15,10 @@ With that installed just run the following command.
  $ docker-compose exec app ./app/index.php
 ```
 **🔥 It's very simple**
+
+### 🔥 Usage 🔥
+
+📌 **[--create|-C]:** Creates an element in the database
+    Usage:
+    - First param: Name from database;
+    - Second param: What wil be saved.
