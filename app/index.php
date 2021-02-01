@@ -19,29 +19,31 @@ if (!isset($argv[1])) {
     return;
 }
 
-if (!ValidatorsHelper::verifyArgs($argv)) return;
 
 switch ($argv[1]) {
     case '--create':
     case '-C':
+        if (!ValidatorsHelper::verifyArgs($argv)) break;
         (new Create($argv))->handle();
         break;
     case '--read':
     case '-R':
+        if (!ValidatorsHelper::verifyArgs($argv, 3)) break;
         (new Read($argv))->handle();
-        break;
-    case '--update':
-    case '-U':
-        (new Update($argv));
         break;
     case '--delete':
     case '-D':
+        if (!ValidatorsHelper::verifyArgs($argv)) break;
         (new Delete($argv))->handle();
         break;
     case '--list' :
     case '-L':
         (new ListCommandsHelper())->getMessage();
         break;
+//    case '--update':
+//    case '-U':
+//        (new Update($argv));
+//        break;
     default:
         echo "🚨 \e[91mOption invalid\e[0m" . PHP_EOL;
 }
