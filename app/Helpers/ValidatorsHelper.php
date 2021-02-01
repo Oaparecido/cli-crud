@@ -42,7 +42,7 @@ class ValidatorsHelper
      */
     public static function verifyArgs($argv): bool
     {
-        if (count($argv) < 4) {
+        if (count($argv) < 3) {
             echo ResponseHelper::failed("see if you are passing the parameters correctly");
             return false;
         }

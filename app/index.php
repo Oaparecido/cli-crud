@@ -9,8 +9,10 @@ use App\Crud\Read;
 use App\Crud\Update;
 use App\Helpers\DBHelper;
 use App\Helpers\ListCommandsHelper;
+use App\Helpers\ResponseHelper;
+use App\Helpers\ValidatorsHelper;
 
-DBHelper::testConnection();
+//DBHelper::testConnection();
 
 if (!isset($argv[1])) {
     echo "🚨 \e[91mIt's need passed a option\e[0m" . PHP_EOL;
