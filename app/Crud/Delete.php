@@ -21,12 +21,8 @@ class Delete
     public function __construct(array $argv)
     {
         $this->args['table_name'] = $argv[2];
-        if (count($argv) > 3) {
-            for ($i = 3; $i <= count($argv); $i++) {
-                var_dump($argv[$i]);
-                die();
-            }
-            $this->args['id'] = $argv[$i];
+        for ($i = 3; $i < count($argv); $i++) {
+            $this->args['id'][] = $argv[$i];
         }
     }
 
