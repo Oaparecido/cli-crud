@@ -2,8 +2,10 @@
 
 namespace App\Helpers;
 
+use App\Config;
 use App\database\Connection;
 use Exception;
+use http\Env\Response;
 
 class DBHelper
 {
@@ -78,6 +80,13 @@ class DBHelper
     public static function read(string $table): array
     {
         self::up();
+
+        if ($table === 'Databases'){
+            $sql = "SHOW TABLES";
+            $stmt = self::$pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_NUM);
+        }
 
         $sql = "SELECT * FROM $table";
         $stmt = self::$pdo->query($sql);

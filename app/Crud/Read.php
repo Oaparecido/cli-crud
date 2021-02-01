@@ -28,18 +28,29 @@ class Read
     {
         $response = DBHelper::read($this->args['table_name']);
 
-        if (!empty($response)) {
-            echo PHP_EOL;
-            echo " ✨ " . $this->args['table_name'] . " ✨". PHP_EOL;
+        echo PHP_EOL;
+        echo " ✨ " . $this->args['table_name'] . " ✨". PHP_EOL;
+
+        if (!empty($response) && $this->args['table_name'] !== 'Databases') {
             $this->response($response);
+        } else {
+            $this->response($response, true);
         }
     }
 
     /**
      * @param array $response
+     * @param bool $all
      */
-    private function response(array $response)
+    private function response(array $response, $all = false)
     {
+        if ($all) {
+            foreach ($response as $table) {
+                echo "  \e[92m🔖:" . $table[0] . "\e[0m" . PHP_EOL;
+            }
+            return;
+        }
+
         $new_array = [];
         foreach ($response as $response_array) {
             $new_array[$response_array['id']] = $response_array['assignment'];
